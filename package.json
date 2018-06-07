@@ -1,0 +1,68 @@
+{
+  "name": "react-redux-starter",
+  "version": "0.1.0",
+  "description": "just a template to start a react redux app",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint --env browser ./src/*.js",
+    "start": "webpack-dev-server  --env=dev --config webpack.config.js",
+    "build-dev": "webpack --env=dev --mode development --config webpack.config.js --progress --profile --colors",
+    "build-prod": "webpack --env=prod --optimize-minimize --mode production --config webpack.config.js --progress --profile --colors"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "webpack",
+    "jest"
+  ],
+  "author": "Carlos Eduardo Jaramillo L",
+  "license": "MIT",
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    }
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^0.28.11",
+    "cypress": "^3.0.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-react": "^7.8.2",
+    "eslint-plugin-standard": "^3.0.1",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.1.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.8.3",
+    "react-test-renderer": "^16.4.0",
+    "redux-mock-store": "^1.5.1",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^2.1.5",
+    "webpack-dev-server": "^3.1.3"
+  }
+}

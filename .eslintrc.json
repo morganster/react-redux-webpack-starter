@@ -1,0 +1,31 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "jasmine": true
+      },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "semi": ["error", "always"],
+        "no-console": ["warn", { "allow": ["warn"] }],
+        "no-empty-function": "error",
+        "no-lone-blocks": "error",
+        "no-magic-numbers": ["error", { "ignoreArrayIndexes": true, "enforceConst": true , "ignore": [0,1]}],
+        "camelcase": "error",
+        "jsx-quotes": ["error", "prefer-single"],
+        "max-depth": ["error", 4]
+    }
+}

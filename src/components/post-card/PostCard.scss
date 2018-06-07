@@ -1,0 +1,14 @@
+.card{
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    &__header{
+        font-size: 1.5em;
+        border-bottom: 1px solid #ccc;
+    }
+    &__body{
+        padding-top: 1rem;
+        font-size: 1em;
+    }
+}
