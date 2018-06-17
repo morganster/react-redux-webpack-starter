@@ -21,12 +21,23 @@ module.exports = {
     devtool: 'source-map',
     optimization: {
         splitChunks: {
+            chunks: 'async',
+            minSize: 30000,
+            minChunks: 1,
+            maxAsyncRequests: 5,
+            maxInitialRequests: 3,
+            automaticNameDelimiter: '~',
+            name: true,
             cacheGroups: {
-                commons: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name: 'vendor',
-                    chunks: 'all'
-                }
+              vendors: {
+                test: /[\\/]node_modules[\\/]/,
+                priority: -10
+              },
+              default: {
+                minChunks: 2,
+                priority: -20,
+                reuseExistingChunk: true
+              }
             }
         }
     },
@@ -54,7 +65,7 @@ module.exports = {
                         sourceMap : true
                     }
                 }, {
-                    loader: 'sass-loader', // compiles Less to CSS
+                    loader: 'sass-loader', // compiles Sass to CSS
                     options: {
                         sourceMap: true
                     }
@@ -85,6 +96,7 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'build'),
         compress: true,
+        open: true,
         port: 9001
     },
 };

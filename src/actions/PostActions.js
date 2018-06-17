@@ -1,8 +1,8 @@
+import axios from 'axios';
 import postConstants from '../constants/PostConstants';
-import PostService from '../services/PostService';
 
-const postService = new PostService();
- const postActions = {
+const postUrl = 'http://jsonplaceholder.typicode.com/posts';
+const postActions = {
     getPost,
 };
 
@@ -13,14 +13,14 @@ function getPost() {
     return (dispatch) => {
         dispatch(request());
 
-        postService.getPosts()
+        axios.get(postUrl)
             .then(
                 posts => {
                     dispatch(success(posts));
                 },
                 error => {
                     dispatch(failure(error));
-            });
+                });
     };
 
     function request(posts) { return { type: postConstants.GET_ALL_REQUEST, posts }; }
