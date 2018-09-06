@@ -31,27 +31,34 @@ module.exports = {
         }
     },
     module: {
-        rules: [{
-            test: /\.js?$/,
-            loader: 'eslint-loader',
-            exclude: /node_modules/,
-        },
-        {
-            test: /.jsx?$/,
-            loader: 'babel-loader',
-            exclude: /node_modules/,
-            query: {
-                presets: ['es2015', 'react']
-            }
-        },
-        {
-            test: /\.scss$/,
-            use: [MiniCssExtractPlugin.loader,
+        rules: [
+            {
+                enforce: "pre",
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "eslint-loader",
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader",
+            },
+            {
+                test: /.jsx?$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+                query: {
+                    presets: ['es2015', 'react']
+                }
+            },
+            {
+                test: /\.scss$/,
+                use: [MiniCssExtractPlugin.loader,
                 {
                     loader: 'css-loader', // translates CSS into CommonJS
                     options: {
                         minimize: true,
-                        sourceMap : false
+                        sourceMap: false
                     }
                 }, {
                     loader: 'sass-loader', // compiles Less to CSS
@@ -59,16 +66,16 @@ module.exports = {
                         sourceMap: false
                     }
                 }]
-        },
-            
-        {
-            test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            loader: 'url-loader?limit=10000&mimetype=application/font-woff'
-        },
-        {
-            test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            loader: 'file-loader'
-        }
+            },
+
+            {
+                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+            },
+            {
+                test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: 'file-loader'
+            }
 
         ]
     },
@@ -80,10 +87,9 @@ module.exports = {
         new CleanWebpackPlugin(__dirname + '/build'),
         new UglifyJSPlugin(),
         new webpack.DefinePlugin({
-                 'process.env.NODE_ENV': JSON.stringify('production')
-                 }),
-        new CopyWebpackPlugin(['./assets/*'])
-
+            'process.env.NODE_ENV': JSON.stringify('production')
+        }),
+        new CopyWebpackPlugin([{ from: 'public' }], {})
     ],
     resolve: {
         extensions: ['.js']
